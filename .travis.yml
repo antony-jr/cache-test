@@ -11,15 +11,12 @@ before_install:
 
 jobs:
   include:
-    - stage: Job1
+    - stage: Build 
       os: linux
-      env: CACHE_NAME=shared JOB="Job1"
-      script: "./main.sh"
-    - stage: Job2
+      script: "./job1.sh"
+    - stage: Build
       os: linux
-      env: CACHE_NAME=shared JOB="Job2"
-      script: "./main.sh"
-    - stage: UseJobs
+      script: "./job2.sh"
+    - stage: Build
       os: linux
-      env: CACHE_NAME=shared JOB="UseJobs"
-      script: "./main.sh"
+      script: "./deploy.sh"
