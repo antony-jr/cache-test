@@ -13,13 +13,13 @@ jobs:
   include:
     - stage: Job1
       os: linux
-      env: JOB="Job1"
+      env: CACHE_NAME=shared JOB="Job1"
       script: "./main.sh"
     - stage: Job2
       os: linux
-      env: JOB="Job2"
+      env: CACHE_NAME=shared JOB="Job2"
       script: "./main.sh"
     - stage: UseJobs
       os: linux
-      env: JOB="UseJobs"
+      env: CACHE_NAME=shared JOB="UseJobs"
       script: "./main.sh"
