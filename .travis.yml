@@ -2,7 +2,9 @@ sudo: required
 compiler: gcc
 dist: xenial
 language: c
-cache: ccache
+cache:
+   directories:
+      - /home/travis/dist/
 
 before_install:
   - sudo apt-get update -qq
