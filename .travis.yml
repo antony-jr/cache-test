@@ -2,9 +2,6 @@ sudo: required
 compiler: gcc
 dist: xenial
 language: c
-cache:
-   directories:
-      - /home/travis/dist/
 
 before_install:
   - sudo apt-get update -qq
@@ -13,10 +10,24 @@ jobs:
   include:
     - stage: Build 
       os: linux
+      env: CACHE_NAME=shared
       script: "./job1.sh"
+      cache:
+         directories:
+            - /home/travis/dist/
     - stage: Build
       os: linux
+      env: CACHE_NAME=shared
       script: "./job2.sh"
-    - stage: Build
+      cache:
+         directories:
+            - /home/travis/dist/
+    - stage: Deploy
       os: linux
+      env: CACHE_NAME=shared
       script: "./deploy.sh"
+      cache:
+         directories:
+            - /home/travis/dist/
+
+
